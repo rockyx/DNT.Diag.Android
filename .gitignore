@@ -213,3 +213,6 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+"com.dnt.diag.jni\dnt.diag\gen\"
+libs\

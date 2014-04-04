@@ -43,9 +43,24 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
+    <Reference Include="Mono.Data.Sqlite" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Language.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Settings.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Data\LiveDataBuffer.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Data\LiveDataItem.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Data\LiveDataItemComparer.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Data\LiveDataList.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Data\TroubleCodeItem.cs" />
+    <Compile Include="dntdiag\DNT\Diag\DB\CryptoException.cs" />
+    <Compile Include="dntdiag\DNT\Diag\DB\DatabaseException.cs" />
+    <Compile Include="dntdiag\DNT\Diag\DB\DBCrypto.cs" />
+    <Compile Include="dntdiag\DNT\Diag\DB\VehicleDB.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Timer.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -54,4 +69,20 @@
     <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="dntdiag\" />
+    <Folder Include="dntdiag\DNT\" />
+    <Folder Include="dntdiag\DNT\Diag\" />
+    <Folder Include="dntdiag\DNT\Diag\Data\" />
+    <Folder Include="dntdiag\DNT\Diag\DB\" />
+    <Folder Include="lib\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedNativeLibrary Include="lib\armeabi\libdntdiag.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedNativeLibrary>
+    <EmbeddedNativeLibrary Include="lib\armeabi-v7a\libdntdiag.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedNativeLibrary>
+  </ItemGroup>
 </Project>
