@@ -214,5 +214,9 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 
-"com.dnt.diag.jni\dnt.diag\gen\"
-libs\
+
+com.dnt.diag.jni/dnt.diag/gen/com/dnt/diag/BuildConfig.java
+com.dnt.diag.jni/dnt.diag/gen/com/dnt/diag/R.java
+com.dnt.diag.jni/dnt.diag/libs/android-support-v4.jar
+com.dnt.diag.jni/dnt.diag/libs/armeabi-v7a/libdntdiag.so
+com.dnt.diag.jni/dnt.diag/libs/armeabi/libdntdiag.so
