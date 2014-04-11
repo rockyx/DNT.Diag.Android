@@ -10,19 +10,19 @@
     <OutputType>Library</OutputType>
     <RootNamespace>DNT.Diag.Android</RootNamespace>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
+    <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <AssemblyName>DNT.Diag.Android</AssemblyName>
-    <TargetFrameworkVersion>v4.4</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.1</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;__MOBILE__;__ANDROID__;</DefineConstants>
+    <DefineConstants>DEBUG;__MOBILE__;__ANDROID__;TOMIC_DEVICE_V1</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
@@ -61,6 +61,65 @@
     <Compile Include="dntdiag\DNT\Diag\DB\VehicleDB.cs" />
     <Compile Include="dntdiag\DNT\Diag\Timer.cs" />
     <Compile Include="dntdiag\DNT\Diag\Utils.cs" />
+    <Compile Include="dntdiag\DNT\Diag\IO\Handshake.cs" />
+    <Compile Include="dntdiag\DNT\Diag\IO\ISerialStream.cs" />
+    <Compile Include="dntdiag\DNT\Diag\IO\Parity.cs" />
+    <Compile Include="dntdiag\DNT\Diag\IO\SerialData.cs" />
+    <Compile Include="dntdiag\DNT\Diag\IO\SerialDataReceivedEventArgs.cs" />
+    <Compile Include="dntdiag\DNT\Diag\IO\SerialError.cs" />
+    <Compile Include="dntdiag\DNT\Diag\IO\SerialErrorReceivedEventArgs.cs" />
+    <Compile Include="dntdiag\DNT\Diag\IO\SerialPinChange.cs" />
+    <Compile Include="dntdiag\DNT\Diag\IO\SerialPinChangedEventArgs.cs" />
+    <Compile Include="dntdiag\DNT\Diag\IO\SerialPort.cs" />
+    <Compile Include="dntdiag\DNT\Diag\IO\SerialPortStream.cs" />
+    <Compile Include="dntdiag\DNT\Diag\IO\SerialSignal.cs" />
+    <Compile Include="dntdiag\DNT\Diag\IO\StopBits.cs" />
+    <Compile Include="dntdiag\DNT\Diag\ProtocolType.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Commbox\CommboxException.cs" />
+    <Compile Include="dntdiag\DNT\Diag\IO\SerialPortExtensions.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Channel\AbstractChannel.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Commbox\Commbox.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Channel\IChannel.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Channel\ChannelException.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Channel\W80\ISO14230Channel.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Commbox\W80\W80Commbox.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Channel\W80\Channel.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Channel\W80\ISO9141Channel.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Channel\W80\MikuniECU200Channel.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Attributes\KLineParity.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Attributes\KWP2KStartType.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Attributes\KWP2KMode.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Attributes\CanBaudRate.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Attributes\CanFilterMask.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Attributes\CanFrameType.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Attributes\CanIDMode.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Attributes\Parameter.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Channel\W80\MikuniECU300Channel.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Channel\ChannelFactory.cs" />
+    <Compile Include="dntdiag\DNT\Diag\ECU\AbstractFunction.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Formats\IFormat.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Formats\AbstractFormat.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Formats\ISO9141Format.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Formats\FormatException.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Formats\KWP2KFormat.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Formats\MikuniECU200Format.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Formats\MikuniECU300Format.cs" />
+    <Compile Include="dntdiag\DNT\Diag\ECU\DataStreamFunction.cs" />
+    <Compile Include="dntdiag\DNT\Diag\ECU\DiagException.cs" />
+    <Compile Include="dntdiag\DNT\Diag\ECU\TroubleCodeFunction.cs" />
+    <Compile Include="dntdiag\DNT\Diag\ECU\ActiveState.cs" />
+    <Compile Include="dntdiag\DNT\Diag\ECU\ActiveTestFunction.cs" />
+    <Compile Include="dntdiag\DNT\Diag\ECU\AbstractECU.cs" />
+    <Compile Include="dntdiag\DNT\Diag\ECU\Mikuni\PowertrainECU200.cs" />
+    <Compile Include="dntdiag\DNT\Diag\ECU\Mikuni\PowertrainModel.cs" />
+    <Compile Include="dntdiag\DNT\Diag\ECU\Mikuni\PowertrainVersion.cs" />
+    <Compile Include="dntdiag\DNT\Diag\ECU\Mikuni\PowertrainDataStreamECU200.cs" />
+    <Compile Include="dntdiag\DNT\Diag\ECU\Mikuni\PowertrainTroubleCodeECU200.cs" />
+    <Compile Include="dntdiag\DNT\Diag\ECU\Mikuni\PowertrainECU300.cs" />
+    <Compile Include="dntdiag\DNT\Diag\ECU\Mikuni\PowertrainDataStreamECU300.cs" />
+    <Compile Include="dntdiag\DNT\Diag\ECU\Mikuni\PowertrainTroubleCodeECU300.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Commbox\CommboxFactory.cs" />
+    <Compile Include="dntdiag\DNT\Diag\Commbox\CommboxVersion.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -76,6 +135,15 @@
     <Folder Include="dntdiag\DNT\Diag\Data\" />
     <Folder Include="dntdiag\DNT\Diag\DB\" />
     <Folder Include="lib\" />
+    <Folder Include="dntdiag\DNT\Diag\IO\" />
+    <Folder Include="dntdiag\DNT\Diag\Commbox\" />
+    <Folder Include="dntdiag\DNT\Diag\Commbox\W80\" />
+    <Folder Include="dntdiag\DNT\Diag\Channel\" />
+    <Folder Include="dntdiag\DNT\Diag\Channel\W80\" />
+    <Folder Include="dntdiag\DNT\Diag\Attributes\" />
+    <Folder Include="dntdiag\DNT\Diag\ECU\" />
+    <Folder Include="dntdiag\DNT\Diag\Formats\" />
+    <Folder Include="dntdiag\DNT\Diag\ECU\Mikuni\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedNativeLibrary Include="lib\armeabi\libdntdiag.so">
